@@ -1,4 +1,4 @@
-const {Pizza} = require('./models');
+const {Pizza} = require('../models');
 
 const pizzaController = {
     //get all pizzas
@@ -23,10 +23,11 @@ const pizzaController = {
       .catch(err => {
           console.log(err);
           res.status(400).json(err);
-      })
+      });
   },
   //create a pizza
   createPizza({body}, res) {
+      console.log(body);
       Pizza.create(body)
       .then(dbPizzaData => res.json(dbPizzaData))
       .catch(err => res.status(400).json(err));
@@ -58,4 +59,4 @@ const pizzaController = {
   }
 };
 
-module.exports - pizzaController;
+module.exports = pizzaController;

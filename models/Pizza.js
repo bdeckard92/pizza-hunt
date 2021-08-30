@@ -16,7 +16,7 @@ const PizzaSchema = new Schema({
         default: 'Large'
     },
     toppings: []
-    }),
+    });
 
     const Pizza = model('Pizza', PizzaSchema);
     module.exports = Pizza;
