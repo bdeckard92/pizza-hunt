@@ -49,7 +49,7 @@ const handlePizzaSubmit = event => {
   if (!pizzaName || !createdBy || !toppings.length) {
     return;
   }
-
+1
   const formData = { pizzaName, createdBy, size, toppings };
   fetch('/api/pizzas', {
     method: 'POST',
