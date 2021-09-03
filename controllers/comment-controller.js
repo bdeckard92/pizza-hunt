@@ -27,10 +27,19 @@ const commentController = {
                 return res.status(404).json({message: "no soup for you"})
             }
             return Pizza.findOneAndUpdate(
-                
-            )
+                {_id: params.pizzaId },
+                {$pull: {comments: params.commentId}},
+                {new: true}
+            );
         })
-
+        .then(dbPizzaData => {
+            if(!dbPizzaData) {
+                res.status(404).json({message: "no soup for you!"});
+                return;
+            }
+            res.json(dbPizzaData);
+        })
+        .catch(err => res.json(err));
     }
 
 };
